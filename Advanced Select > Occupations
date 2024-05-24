@@ -14,7 +14,7 @@ SELECT
   COALESCE(MAX(CASE WHEN Occupation = 'Actor' THEN Name END), NULL) AS Actor
 FROM (
   SELECT Name, Occupation,
-    ROW_NUMBER() OVER (PARTITION BY Occupation ORDER BY Name) AS rn
+    ROW_NUMBER() OVER (PARTITION BY Occupation ORDER BY Name) AS rownum
   FROM Occupations
-) AS subquery
-GROUP BY rn;
+) AS sub
+GROUP BY rownum;
