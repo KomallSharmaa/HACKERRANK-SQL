@@ -3,6 +3,7 @@ The output column headers should be Doctor, Professor, Singer, and Actor, respec
 
 Note: Print NULL when there are no more names corresponding to an occupation.
 
+Solution:
 /*
 * Mysql solution.
 */
