@@ -6,3 +6,19 @@ Solution:
 /*
 * Mysql solution.
 */
+
+SELECT
+  ROUND(
+    AVG(CASE
+      WHEN row_num = total_rows / 2 + 0.5 THEN LAT_N
+      WHEN row_num = total_rows / 2 + 1 THEN LAT_N
+    END),
+    4
+  ) AS Median
+FROM (
+  SELECT
+    LAT_N,
+    ROW_NUMBER() OVER (ORDER BY LAT_N) AS row_num,
+    COUNT(*) OVER () AS total_rows
+  FROM STATION
+) AS subquery;
