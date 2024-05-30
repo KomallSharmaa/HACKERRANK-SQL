@@ -1,0 +1,9 @@
+Query a count of the number of cities in CITY having a Population larger than 100,000.
+
+Solution:
+/*
+* Mysql solution.
+*/
+
+
+select count(countrycode) as number_of_cities from city where population > 100000
